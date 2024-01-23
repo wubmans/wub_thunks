@@ -17,7 +17,7 @@ export default function HomePage()
     {
         posts.forEach((post, i) => 
         {
-            list.push(<PostItem key = { i } item = { post } />)
+            list.push(<PostItem key = { i } post = { post } />)
         })
     }
 

@@ -9,7 +9,6 @@ export default function()
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { id } = useParams()
-    
 
     const post = useSelector(state => state.posts.find(p => p.id == id ))
 
@@ -19,15 +18,13 @@ export default function()
 
     let post_content = ""
 
-
-
     if (post) {
         post_content =  <>
         <div className="post_page">
         <h2>{ post && post.title }</h2>
 
         <pre>
-            <span>ID: </span><span><a href={ "/posts/" + post.id }>{ post.id }</a></span> | <span>Author_ID: </span><span>{ post.author_id }</span><br/>
+            <span>ID: </span><span><a href="#" onClick= { () => { navigate("/posts/" + post.id) }} >{ post.id }</a></span> | <span>Author_ID: </span><span>{ post.author_id }</span><br/>
             <span>created: { post.createdAt.substring(0, 10) }</span><br/>
         </pre>
         <p> { post.content } </p>

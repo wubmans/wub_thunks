@@ -14,7 +14,7 @@ const feedSlice = createSlice({
         setLoading: (state, action) => { state.isLoading = action.payload },
         postsFetched: (state, action) => { state.posts = action.payload; }, 
         postFetched: (state, action) => {
-            state.posts = [... state.posts, action.payload]
+            state.posts = [... state.posts.filter(p => p.id != action.payload.id), action.payload]
         }
     }
 })
