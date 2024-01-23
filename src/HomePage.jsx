@@ -1,33 +1,51 @@
 import { useDispatch, useSelector } from "react-redux"
-import { fetchPosts } from "./Store"
+import { store, fetchPosts } from "./Store"
 import PostItem from "./PostItem"
-import { useEffect } from "react"
+import React from "react"
+import { connect } from 'react-redux';
 
-export default function HomePage()
+
+ class HomePage extends React.Component
 
 {
 
-    const dispatch = useDispatch()
+    state = store.getState()
 
-    const posts = useSelector(state => state.posts)
-    const isLoading = useSelector(state => state.isLoading)
-    let list = []
-
-    if (posts.length !== 0)
-    {
-        posts.forEach((post, i) => 
-        {
-            list.push(<PostItem key = { i } post = { post } />)
-        })
+    componentDidMount() {
+        store.subscribe(() => {
+            const currentState = store.getState()
+            if (this.state !== currentState) {
+                this.setState(currentState);
+            }    
+        });
     }
 
-    // useEffect(() => { dispatch(fetchPosts) }, [ dispatch])
+    render() {
 
-    return (
-        <div>
-            <h2>Lol homepage</h2>
-            <button className="primary" disabled = { isLoading } onClick = { () => { dispatch(fetchPosts)}}>Fetch posts</button> { isLoading ? '⌛' : '' }
-            <pre> { list } </pre>
-        </div>
-    )
+        const { dispatch } = this.props;               
+
+        let list = []
+
+        const { isLoading, posts } = this.state;
+
+        if (posts && posts.length !== 0)
+        {
+            posts.forEach((post, i) => 
+            {
+                list.push(<PostItem key = { i } post = { post } />)
+            })
+        }
+
+        // useEffect(() => { dispatch(fetchPosts) }, [ dispatch])
+
+        return (
+            <div>
+                <h2>Lol homepage</h2>
+                <button className="primary" disabled = { isLoading } onClick = { () => { dispatch(fetchPosts)}}>Fetch posts</button> { isLoading ? '⌛' : '' }
+                <pre> { list } </pre>
+            </div>
+        )
+    }
 }
+
+export default connect()(HomePage)
