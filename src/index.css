@@ -88,6 +88,27 @@ button:disabled {
   border: 1px solid #ccc;
 }
 
-.post_page {
+.page {
+  text-align: left;
+}
 
+.labeltje 
+{
+  width: 130px;
+  text-align: right;
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 12px;
+  color: #888;
+
+}
+
+span.error {
+  background-color: #ffbfb8;
+  color: #c61b1b;
+  padding: 4px;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 7px;
+  margin: 20px;
 }

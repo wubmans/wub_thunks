@@ -9,11 +9,11 @@ export default function HomePage()
 
     const dispatch = useDispatch()
 
-    const posts = useSelector(state => state.posts)
-    const isLoading = useSelector(state => state.isLoading)
+    const posts = useSelector(state => state.feed.posts)
+    const isLoading = useSelector(state => state.feed.isLoading)
     let list = []
 
-    if (posts.length !== 0)
+    if (posts && posts.length !== 0)
     {
         posts.forEach((post, i) => 
         {
