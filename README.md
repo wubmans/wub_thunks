@@ -7,3 +7,9 @@
 So we add another great image:
 
 ![alt](images/Screenshot2024-01-25225045.png)
+
+## useEffect()
+
+see: https://wavez.github.io/react-hooks-lifecycle/
+
+![alt](images/Screenshot2024-01-25225340.png)
