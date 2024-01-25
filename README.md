@@ -1,5 +1,5 @@
 # nice things
 
-![it's nice](https://1drv.ms/i/s!Ak6dEzzOMnUJiN859y28DOGj-04S5w?e=Xq6B9Z)
+![it's nice](images/Screenshot 2024-01-25 221919.png?raw=true)
 
 ## another nice thing
